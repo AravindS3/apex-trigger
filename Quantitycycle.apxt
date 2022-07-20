@@ -1,0 +1,430 @@
+trigger QuantityCycle on Customer_Purchase__c (after insert) {
+      List<String> s1 = new List<String>();
+    for(Customer_Purchase__c additems : trigger.new)
+    {
+        s1.add(additems.Brand_Name__c);
+    }
+    List<Product_Detail__c> product = [SELECT id,Brand_Name__c,Model_Name__c,Quantity__c,Gear__c from Product_Detail__c where Brand_Name__c like: s1];
+    List<Product_Detail__c> poductupdate = new List<Product_Detail__c>();
+    
+    for(Product_Detail__c a : product)
+    {
+        for(Customer_Purchase__c additems : trigger.new)
+        {
+            if(additems.Brand_Name__c == a.Brand_Name__c)
+            {
+                if(additems.Brand_Name__c == 'Atlas' && additems.Model_Name__c == 'Atlas Ultimate City 26T' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Atlas' && additems.Model_Name__c == 'Atlas Ultimate City 26T' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Atlas' && additems.Model_Name__c == 'Atlas Little Star 20T' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Atlas' && additems.Model_Name__c == 'Atlas Little Star 20T' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Atlas' && additems.Model_Name__c == 'Atlas Erikka IBC 26T Recreation' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Atlas' && additems.Model_Name__c == 'Atlas Erikka IBC 26T Recreation' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Avon' && additems.Model_Name__c == 'Avon Vijeta' && additems.Gear__c == 'Gear')
+                {
+
+if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Avon' && additems.Model_Name__c == 'Avon Vijeta' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Avon' && additems.Model_Name__c == 'Avon Kranti' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Avon' && additems.Model_Name__c == 'Avon Kranti' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Avon' && additems.Model_Name__c == 'Avon Pilot' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Avon' && additems.Model_Name__c == 'Avon Pilot' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Hercules' && additems.Model_Name__c == 'Hercules Rocky RF 24 Hybrid Cycle' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                if(additems.Brand_Name__c == 'Hercules' && additems.Model_Name__c == 'Hercules Rocky RF 24 Hybrid Cycle' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+
+a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                
+                if(additems.Brand_Name__c == 'Hercules' && additems.Model_Name__c == 'Hercules TopGear Tz 110 26T 1FG245G0922000A Cycle' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+                 if(additems.Brand_Name__c == 'Hercules' && additems.Model_Name__c == 'Hercules TopGear Tz 110 26T 1FG245G0922000A Cycle' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Hercules' && additems.Model_Name__c == 'Hercules Roadeo A 300 Bicycle' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Hercules' && additems.Model_Name__c == 'Hercules Roadeo A 300 Bicycle' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Firefox' && additems.Model_Name__c == 'Karma' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Firefox' && additems.Model_Name__c == 'Karma' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Firefox' && additems.Model_Name__c == 'Kreed 27.5 D' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+if(additems.Brand_Name__c == 'Firefox' && additems.Model_Name__c == 'Kreed 27.5 D' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Firefox' && additems.Model_Name__c == 'Maestro' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Firefox' && additems.Model_Name__c == 'Maestro' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Hero' && additems.Model_Name__c == 'Champion 16T' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Hero' && additems.Model_Name__c == 'Champion 16T' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Hero' && additems.Model_Name__c == 'Fairy 20T' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Hero' && additems.Model_Name__c == 'Fairy 20T' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+if(additems.Brand_Name__c == 'Hero' && additems.Model_Name__c == 'Finisher DS 26T' && additems.Gear__c == 'Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+ if(additems.Brand_Name__c == 'Hero' && additems.Model_Name__c == 'Finisher DS 26T' && additems.Gear__c == 'Non-Gear')
+                {
+                    if( a.Quantity__c < additems.Quantity__c )
+                    {
+                        additems.addError('Out of Stock');
+                    }
+                    else
+                    {
+                        
+                       
+                        a.Quantity__c = math.abs(a.Quantity__c - additems.Quantity__c);
+                    }
+                }
+
+                poductupdate.add(a);
+            }
+            
+               }
+            update poductupdate;
+        }
+
+
+}

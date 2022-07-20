@@ -1,0 +1,19 @@
+trigger supptopro on Product_Supplier__c (after insert) {
+    List<Product_Detail__c> product = new List<Product_Detail__c>();
+    for(Product_Supplier__c additems : trigger.new)
+    {
+        Product_Detail__c obj = new Product_Detail__c();
+        obj.Brand_Name__c = additems.Brand_Name__c ;
+        obj.Model_Name__c = additems.Model_Name__c ;
+        obj.Name = additems.Model_Id__c;
+        obj.Gear__c = additems.Gear__c ;
+        obj.Quantity__c = additems.Quantity__c;
+        obj.Price__c = additems.Price__c * 1.12;
+        product.add(obj);
+        
+    }
+    insert product;
+    
+
+
+}
